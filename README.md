@@ -24,5 +24,16 @@ this command, deletes the my.env file from the cache of all of the branches:
  
  picking specific commit from another branch can be done by  *"git cherry-pick"* command.
  inorder for making multiple commits into one single commit before merging them, you can use *"git rebase -i HEAD~n"* to view n last logs of your repository history and then *"squash"* all n-1 commits into the first commit among them. *sqush* makes a single commit out of n commits. then you can push and merge the squshed commit. 
- 
+ - git checkout -b "new-branch" to create and change to a new branch
+ - git add and commit 3 commits on the new-branch
+ - git log and find the commitSHA of the 2nd commit
+ - git checkout main
+ - git cherry-pick commitSHA to add the commit from new-branch to your main branch
+ - git push origin main
+ - git checkout new-branch
+ - git rebase -i HEAD~3 inorder to access last 3 commits and sqush the last 2 ones to the first one
+ - git pull origin main to merge new-branch with main(master)
+ - git checkout main
+ - git merge new-branch
+ - git push origin main
  
